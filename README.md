@@ -6,15 +6,12 @@ Require composer and wp-cli installed.
 
 To download Wordpress:
 
--	Under the root folder, tape: 
+1.`composer install`
+2.`rename wp-sample-config.php to wp-config.php`
+2.`wp core config --dbname=$dbname --dbuser=$dbuser --dbpass=$dbpass --dbhost=$dbhost --extra-php <<PHP
+define('WP_ENV', 'development');
+define('WP_DEFAULT_THEME', 'roots' );
+PHP`
+3.`wp db create $dbname`
+4.`wp core install --url=$url --title=$title --admin_name=$admin --admin_password=$pass --admin_email=$email`
 
-	`composer install`
-
--	Under the wp folder, tape: 
-
-	`wp core config --dbname=”$dbname” --dbuser="$dbuser" --dbpass="$dbpass" --dbhost="$dbhost" --dbprefix="$dbprefix"`
-	
--	`wp db create "$dbname"`  	
--	`wp core install --url="$url" --title="$title" --admin_name="$admin" --admin_password="$pass" --admin_email="$email"`
--	Open the database with a database tools and change the field "siteurl" in the "wp-options" table by adding "/wp" at the end of the url
--	change wp-sample-config.php to wp-config.php with the information of the database
