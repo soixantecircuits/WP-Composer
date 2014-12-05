@@ -8,13 +8,10 @@ To download Wordpress:
 
 1.`composer install`
 
-2.`wp core config --dbname=$dbname --dbuser=$dbuser --dbpass=$dbpass --dbhost=$dbhost --extra-php <<PHP
-
+2.<pre>``wp core config --dbname=$dbname --dbuser=$dbuser --dbpass=$dbpass --dbhost=$dbhost --extra-php <<PHP
 define('WP_ENV', 'development');
-
 define('WP_DEFAULT_THEME', 'roots' );
-
-PHP`
+PHP``</pre>
 
 3.`wp db create $dbname`
 
